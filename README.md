@@ -2,6 +2,12 @@
 
 `CORSair` is a lightweight, configurable HTTP proxy that provides flexible request forwarding capabilities. It's designed primarily as a CORS proxy.
 
+## Quick start
+
+- [Installation](doc/install.md)
+- [Configuration](doc/configuration.md)
+- [usage](doc/usage.md)
+
 ## Overview
 
 `CORSair` dynamically exposes endpoints based on a yaml configuration file.
@@ -27,12 +33,6 @@ It's also possible to use `/forward` endpoint to forward a request without any c
 
 > [!CAUTION]
 > **Forward Endpoint Risk**: The `/forward?url=` endpoint can potentially access internal networks. Consider disabling it (`forward_endpoint_enabled: false`) if you don't need it
-
-## Quick start
-
-- [Installation](doc/install.md)
-- [Configuration](doc/configuration.md)
-- [usage](doc/usage.md)
 
 ## License
 

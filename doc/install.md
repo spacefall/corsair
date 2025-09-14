@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
 ```
 
-```console 
+```console
 docker compose up -d
 ```
 
@@ -39,7 +39,7 @@ Build the server.
 ```bash
 git clone https://github.com/bastienwirtz/corsair
 cd corsair
-go build -o corsair
+go build -o corsair ./cmd
 ```
 
 Start the server

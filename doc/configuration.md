@@ -11,6 +11,7 @@ server:
 ```
 
 **Address Options:**
+
 - `"localhost"` - Local access only (default, secure)
 - `"0.0.0.0"` - All IPv4 interfaces (for containers/external access)
 - `"127.0.0.1"` - IPv4 localhost only
@@ -45,6 +46,7 @@ cors:
 ```
 
 **Origin Examples:**
+
 - `["*"]` - Allow all origins
 - `["https://example.com"]` - Specific origin
 - `["*.example.com"]` - Subdomain wildcard
