@@ -23,8 +23,5 @@ jobs:
       name: Verify dependencies
       run: go mod verify
     - 
-      name: Build
-      run: go build -v ./cmd
-
-    - name: Test
+      name: Test
       run: go test -v ./...
