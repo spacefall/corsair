@@ -12,7 +12,7 @@ import (
 	"github.com/mattn/go-isatty"
 )
 
-func SetupLogger(cfg config.LoggingConfig) error {
+func SetupLogger(cfg config.LoggingConfig, version string) error {
 	var level slog.Level
 	switch strings.ToLower(cfg.Level) {
 	case "debug":
@@ -45,7 +45,7 @@ func SetupLogger(cfg config.LoggingConfig) error {
 		return fmt.Errorf("invalid log format: %s", cfg.Format)
 	}
 
-	logger := slog.New(handler)
+	logger := slog.New(handler).With("version", version)
 	slog.SetDefault(logger)
 
 	return nil

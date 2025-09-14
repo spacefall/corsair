@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log/slog"
 	"net"
 	"net/http"
@@ -15,8 +16,17 @@ import (
 	"github.com/bastienwirtz/corsair/server"
 )
 
+var version = "dev"
+
 func main() {
 	configPath := flag.String("c", "/etc/corsair/config.yaml", "path to configuration file")
+	versionFlag := flag.Bool("version", false, "print version information")
+	flag.Parse()
+
+	if *versionFlag {
+		fmt.Printf("Version: %s\n", version)
+		return
+	}
 	flag.Parse()
 
 	cfg, err := config.LoadConfig(*configPath)
@@ -25,7 +35,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := server.SetupLogger(cfg.Logging); err != nil {
+	if err := server.SetupLogger(cfg.Logging, version); err != nil {
 		slog.Error("Failed to setup logger", "error", err)
 		os.Exit(1)
 	}
