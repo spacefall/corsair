@@ -10,7 +10,7 @@ Configuring an endpoint look like this:
 
 ```yaml
 - path: /example
-  remote_url: https://any.url.com/anything/
+  remote_url: https://any.url/anything/
   headers:
     - X-Hello: "{{ WORLD }}" # Double braced expression are used for environment variable substitution.
   query_params:

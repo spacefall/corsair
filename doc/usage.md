@@ -1,25 +1,30 @@
 # Usage
 
-Corsair provides two types of HTTP proxy endpoints for forwarding requests:
+Corsair provides two ways to forward requests:
 
-## Configured Endpoints
+- Configured requests
+- Generic Forwarding
 
-Configure endpoints in `config.yaml` to define specific proxy routes with custom headers, query parameters, and timeout settings.
+## Configured requests
 
-### Basic Endpoint Configuration
+Configure corsair endpoints in `config.yaml` to define specific proxy routes with custom headers, query parameters, and timeout settings.
+
+### Endpoint Configuration
 
 ```yaml
 endpoints:
-  - path: /api
+  - 
+    path: /api
     remote_url: https://api.example.com
-    timeout: "30s"  # Optional: Override default timeout
+    timeout: "30s"  # Optional: Override global default timeout
     headers:
-      - Authorization: "Bearer {{ API_TOKEN }}"
       - X-Custom-Header: "value"
     query_params:
       - version: "v1"
-      - format: "json"
 ```
+
+> [!NOTE]
+> You can use a request bin / webhook tester service as remote_url to view the generated request details, and test your configuration.
 
 ### Sub-path Forwarding
 
@@ -60,7 +65,7 @@ query_params:
   - version: "v2"
 ```
 
-## Generic Forwarding Endpoint
+## Generic Forwarding
 
 The `/forward` endpoint allows ad-hoc proxying to any URL without pre-configuration.
 
@@ -71,6 +76,7 @@ curl "http://localhost:8080/forward?url=https://api.example.com/data"
 ```
 
 > [!NOTE]
+>
 > - **HTTPS default**: URLs without a scheme default to HTTPS for security
 > - **Protocol restriction**: Only HTTP and HTTPS protocols are allowed
 > - **URL validation**: Malformed URLs are rejected with `400 Bad Request`
@@ -106,7 +112,7 @@ server:
 
 ### Template Variables
 
-Template processing occurs at request time, enabling secure secret injection:
+Template processing is applied on remote url, headers and query params, enabling secure secret injection:
 
 ```yaml
 endpoints:
@@ -118,8 +124,6 @@ endpoints:
     query_params:
       - client_id: "{{ CLIENT_ID }}"
 ```
-
-**Security benefit**: Secrets are read from environment variables at runtime, not stored in configuration files.
 
 ## Error Handling
 

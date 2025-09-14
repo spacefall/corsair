@@ -20,24 +20,8 @@ cors:
   
 endpoints:
   - 
-    path: /
-    remote_url: https://www.postb.in/1757247861343-6690988021437
-    #timeout: "30s" # Optional: Override global default timeout for this endpoint
-    headers: 
-      - X-custom-header: "foo {{ ANY_ENV_VAR }}"
-    query_params:
-      - foo: root
-  - 
-    path: /forward
-    remote_url: https://www.postb.in/1757247861343-6690988021437
-    #timeout: "30s" # Optional: Override global default timeout for this endpoint
-    headers: 
-      - X-custom-header: "foo {{ ANY_ENV_VAR }}"
-    query_params:
-      - foo: bar
-  - 
-    path: /test
-    remote_url: https://www.postb.in/1757247861343-6690988021437
+    path: /example
+    remote_url: https://remote.url
     #timeout: "30s" # Optional: Override global default timeout for this endpoint
     headers: 
       - X-custom-header: "foo {{ ANY_ENV_VAR }}"
