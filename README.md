@@ -1,4 +1,4 @@
-# `CORSair`: 🏴‍☠️ CORS HTTP Proxy
+# `CORSair` 
 
 `CORSair` is a lightweight, configurable HTTP proxy that provides flexible request forwarding capabilities. It's designed primarily as a CORS proxy.
 
