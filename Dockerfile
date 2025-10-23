@@ -3,8 +3,8 @@ FROM golang:1.25-alpine AS build
 
 WORKDIR /build
 
-ARG TARGETOS=linux
-ARG TARGETARCH=amd64
+ARG TARGETOS
+ARG TARGETARCH
 ARG VERSION=dev
 
 COPY go.mod go.sum ./
